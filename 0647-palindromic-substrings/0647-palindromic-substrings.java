@@ -1,5 +1,8 @@
 class Solution {
     public int countSubstrings(String s) {
+        if (s.length() < 2) {
+            return s.length();
+        }
         int odd =0;
         int even =0;
         int n = s.length();
