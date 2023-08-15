@@ -15,6 +15,8 @@
  */
 class Solution {
     public int deepestLeavesSum(TreeNode root) {
+     if(root == null) return 0;
+        
         int sum =0;
         Queue<TreeNode> q = new LinkedList<>();
         
@@ -32,6 +34,11 @@ class Solution {
         }
         
         return sum;
+        
+        
+        //DFS Implementation
+        
+        
         
     }
 }
