@@ -14,8 +14,11 @@
  * }
  */
 class Solution {
+    int sum =0;
     public int sumEvenGrandparent(TreeNode root) {
-        
+     
+        // BFS Implementation
+    /*    
         if(root == null) return 0;
         
         int sum =0;
@@ -51,5 +54,28 @@ class Solution {
         }
         
         return sum;
+        */
+        
+        if(root == null) return 0;
+        sumOfNodeEvenValuedGrandParent(root);
+        return sum;
+        
+    }
+    
+    public void sumOfNodeEvenValuedGrandParent(TreeNode root){
+        if(root == null) return ;
+        if(root.left !=null){
+            if(root.left.left != null && root.val % 2 ==0) sum = sum+root.left.left.val;
+        if(root.left.right!= null && root.val % 2 ==0) sum = sum + root.left.right.val;
+        }
+        if(root.right != null){
+            if(root.right.left != null && root.val % 2 == 0)sum = sum + root.right.left.val;
+        if(root.right.right != null && root.val % 2 ==0 ) sum = sum + root.right.right.val;
+        }
+        
+        
+        sumOfNodeEvenValuedGrandParent(root.left);
+        sumOfNodeEvenValuedGrandParent(root.right);
+        
     }
 }
