@@ -8,14 +8,15 @@ class Solution {
         //     }
         // }
 
-        Map<Integer, Integer> hMap = new HashMap<>();
-
-        for(int i=0; i< nums.length; i++){
-            if(hMap.containsKey(target - nums[i])){
-                return new int[]{ hMap.get(target - nums[i]), i };
+      Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int i =0; i < nums.length ;i++){
+            if(map.containsKey(target - nums[i])){
+                return new int[]{ map.get(target - nums[i]), i};
             }
-            hMap.put(nums[i], i);
+            map.put(nums[i],i);
         }
-       return new int[]{} ;
+        
+        return new int[]{};
     }
 }
