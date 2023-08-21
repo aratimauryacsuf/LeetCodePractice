@@ -1,7 +1,9 @@
 import java.util.SortedMap;
 class Solution {
     public int[] topKFrequent(int[] a, int k) {
-        
+   
+        /*
+        //Using map & sorted MAp
         Map<Integer,Integer> map = new HashMap<>();
         for(int i =0; i< a.length;i++){
             map.put(a[i],map.getOrDefault(a[i],0)+1);
@@ -30,6 +32,40 @@ class Solution {
         }
         
         return res;
+        */
+        
+        //Using Bucket Sort
+        
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i =0; i< a.length;i++){
+            map.put(a[i],map.getOrDefault(a[i],0)+1);
+        }
+        
+        
+        List<Integer>[] bucket = new List[a.length + 1];
+        
+        for(int key : map.keySet()){
+            int freq = map.get(key);
+            if(bucket[freq] == null){
+                bucket[freq] = new ArrayList<>();
+            }
+            bucket[freq].add(key);
+        }
+        
+        List<Integer> result = new ArrayList<>();
+        for(int i = bucket.length -1; i >0 && k >0 ; i--){
+            if(bucket[i]!=null){
+                List<Integer> list  = bucket[i];
+                result.addAll(list);
+                k = k-list.size();
+                
+            }
+        }
+        int[] res = new int[result.size()];
+        for(int i =0; i< result.size();i++){
+            res[i] = result.get(i);
+        }
+        return res ;
     }
 }
        
