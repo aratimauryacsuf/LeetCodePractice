@@ -20,16 +20,15 @@ class Solution {
               sortedMap.put(entry.getValue(), list);
           }
           
-      }  
-        System.out.println(sortedMap);
-        
+      }          
         for(Map.Entry<Integer, List<Integer>> entry : sortedMap.entrySet()){
             List<Integer> list = entry.getValue();
-            //System.out.println("list: "+ list);
+            if(j==k)
+                break;
             for(int num : list){
                  res[j++] = num;
                     if(j == k)
-                         return res;
+                         break;
             }
          
       }  
