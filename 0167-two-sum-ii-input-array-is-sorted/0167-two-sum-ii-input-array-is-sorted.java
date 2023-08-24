@@ -13,6 +13,7 @@ class Solution {
        
         return new int[]{};
      */   
+        // since array is sorted
           int[] indice = new int[2];
     if (num == null || num.length < 2) return indice;
     int left = 0, right = num.length - 1;
