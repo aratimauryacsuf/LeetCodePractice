@@ -24,7 +24,7 @@ class Solution {
 //         }
         
 //         return max;
-        
+         if (nums.length == 0) return 0;
         Set<Integer> set = new HashSet<>();
         
         for(int n : nums){
@@ -33,6 +33,7 @@ class Solution {
         int max=0;
         
         for(int n : nums){
+            //check if the num is the start of a sequence by checking if left exists
             if(!set.contains(n-1)){
                 int m = n+1;
                 while(set.contains(m)){
@@ -41,7 +42,7 @@ class Solution {
                 
                 max = Math.max(max,m-n);
             }
-            
+             if(max > nums.length/2) break;
         }
         
         return max;
