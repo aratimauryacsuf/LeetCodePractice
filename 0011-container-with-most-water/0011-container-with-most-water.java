@@ -26,7 +26,12 @@ class Solution {
             res = Math.max(res,area);
             
             if(h[left] < h[right]) left++;
-            else right--;
+            else if(h[left] > h[right]) right--;
+            else{
+                left++;
+                right--;
+            }
+                
             
         }
         
