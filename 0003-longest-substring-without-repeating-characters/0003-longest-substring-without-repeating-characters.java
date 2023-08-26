@@ -15,7 +15,7 @@ class Solution {
             
             if(map.containsKey(c) && map.get(c) >0){
                 max = Math.max(max, end -start);
-                System.out.println("max: "+max);
+               // System.out.println("max: "+max);
                 
                 while(map.get(c) != 0){
                     char charS =s.charAt(start);
