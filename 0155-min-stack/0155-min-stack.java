@@ -13,7 +13,7 @@ class MinStack {
 
         // The min stack may be empty, so we need to check it
         val = Math.min(val, minStack.isEmpty() ? val : minStack.peek());
-        System.out.println("val:" +val);
+       // System.out.println("val:" +val);
         minStack.push(val);
     }
 
