@@ -21,12 +21,12 @@ class TimeMap {
         int start =0;
             
         int end = list.size() -1;
-        System.out.println("start: "+start+ " end: "+ end);
+       // System.out.println("start: "+start+ " end: "+ end);
         
         
         while(start <end){
             int mid = start+ (end -  start+1)/2;
-           System.out.println("mid:"+ mid);
+          // System.out.println("mid:"+ mid);
             
             if(list.get(mid).getValue() <= timestamp) start = mid;
             else end = mid-1;
