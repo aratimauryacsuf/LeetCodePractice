@@ -26,8 +26,8 @@ class Solution {
         
 //         return head;
         
-        
-        ListNode prev = null;
+// Iterative approach        
+    /*    ListNode prev = null;
         ListNode current = head; 
         
         while(current != null){
@@ -38,5 +38,17 @@ class Solution {
         }
         
         return prev;
+     */
+    // Recursive 
+        
+        if(head == null || head.next ==null){
+            return head;
+        }
+        ListNode nextnode =head.next; 
+        ListNode newhead = reverseList(nextnode);
+        nextnode.next  = head;
+        head.next =null;
+        
+        return newhead;
     }
 }
