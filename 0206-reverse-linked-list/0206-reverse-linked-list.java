@@ -42,11 +42,15 @@ class Solution {
     // Recursive 
         
         if(head == null || head.next ==null){
+           // System.out.println("head:"+ head.val);
             return head;
         }
         ListNode nextnode =head.next; 
+      
         ListNode newhead = reverseList(nextnode);
+     
         nextnode.next  = head;
+       
         head.next =null;
         
         return newhead;
