@@ -22,7 +22,7 @@ class Solution {
         for(int i =0; i< inorder.length;i++){
             if(preorder[0] == inorder[i]){
                 mid = i;
-                
+                break;  
             }
         }
         
