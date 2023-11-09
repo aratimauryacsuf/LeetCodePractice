@@ -32,7 +32,7 @@ class Twitter {
             if(tweetMap.containsKey(followeeId)){
                 List<int[]> followeeTweets = tweetMap.get(followeeId);
                 int size = followeeTweets.size();
-                System.out.println("in getfeed  no of tweet"+ size);
+                //System.out.println("in getfeed  no of tweet"+ size);
                 if (size > 0) {
                     int[] tweet = followeeTweets.get(size - 1);
                     pq.offer(new int[]{tweet[0], tweet[1], followeeId, size - 1});
@@ -43,7 +43,7 @@ class Twitter {
         
         while(!pq.isEmpty() && res.size() <10){
             int[] data = pq.poll();
-            System.out.println("count:"+ data[0]+ " tweetid"+ data[1]);
+            //System.out.println("count:"+ data[0]+ " tweetid"+ data[1]);
             res.add(data[1]);
             
             int followeeId = data[2];
@@ -51,7 +51,7 @@ class Twitter {
             
             if(tweetIndex >0){
                 int[] tweet = tweetMap.get(followeeId).get(tweetIndex-1);
-                System.out.println("in tweetindex:"+ tweet[0] +" ID:"+ tweet[1]);
+               // System.out.println("in tweetindex:"+ tweet[0] +" ID:"+ tweet[1]);
                  pq.offer(new int[]{tweet[0], tweet[1], followeeId, tweetIndex - 1});
             }
         }
