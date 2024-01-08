@@ -14,11 +14,15 @@ class Solution {
         }
         
         for(int num: nums){
-            
+           // System.out.println("num: "+ num);
             if(!cur.contains(num)){
                 cur.add(num);
+                //System.out.println("cur: "+ cur);
                 backtrack(nums, ans, cur);
+                //System.out.println("after backtracking cur:"+ cur);
                 cur.remove(cur.size() -1);
+               // System.out.println("After removal cur: "+ cur);
+                
             }
         }
     }
