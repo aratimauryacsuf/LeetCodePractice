@@ -14,19 +14,19 @@ class Solution {
         List<Integer> list
     ) {
         ans.add(new ArrayList<>(list));
-        System.out.println("ans: "+ ans);
+        //System.out.println("ans: "+ ans);
         
-        System.out.println("idx before for loop: "+ idx);
+       // System.out.println("idx before for loop: "+ idx);
 
         for (int i = idx; i < nums.length; i++) {
-            System.out.println("idx: "+ idx);
+           // System.out.println("idx: "+ idx);
             //skip the duplicate elements
             if (i > idx && nums[i] == nums[i - 1]) continue;
             list.add(nums[i]);
-             System.out.println("list: "+ list);
+            // System.out.println("list: "+ list);
             subSet(nums, i + 1, ans, list);
             list.remove(list.size() - 1);
-            System.out.println("after removal list: "+ list);
+           // System.out.println("after removal list: "+ list);
         }
 }
 }
