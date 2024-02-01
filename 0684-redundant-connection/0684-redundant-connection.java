@@ -8,20 +8,20 @@ class Solution {
         }
         
         for(int[] edge : edges){
-            if(find(edge[0])== find(edge[1]))
+            if(findParent(edge[0])== findParent(edge[1]))
                 return edge;
             else
-                union(edge[0], edge[1]);
+                unionParent(edge[0], edge[1]);
         }
         return new int[2];
     }
     
-    public int find(int x){
+    public int findParent(int x){
         if(x == parent[x-1]) return x;
-        return find(parent[x-1]);
+        return findParent(parent[x-1]);
     }
     
-    public void union(int x, int y){
-        parent[find(y)-1] = find(x);
+    public void unionParent(int x, int y){
+        parent[findParent(y)-1] = findParent(x);
     }
 }
