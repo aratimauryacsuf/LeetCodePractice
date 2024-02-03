@@ -4,9 +4,13 @@ class Solution {
         
         for(int i=0; i< nums.length -1; i++){
             curFar = Math.max(curFar, i+nums[i]);
+           
             if(i == curEnd){
+                
                 count++;
+               
                 curEnd = curFar;
+                
             }
         }
         return count;
