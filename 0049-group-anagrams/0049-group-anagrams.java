@@ -10,7 +10,7 @@ class Solution {
                 c[ch-'a']++;
             }
             
-            String str = new String(c);
+            String str = String.valueOf(c);
             
             if(!map.containsKey(str)){
                 map.put(str, new ArrayList<>());
