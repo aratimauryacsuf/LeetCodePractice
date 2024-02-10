@@ -1,36 +1,20 @@
 class Solution {
+    int count = 0;
+    
     public int countSubstrings(String s) {
-        if (s.length() < 2) {
-            return s.length();
+        if (s == null || s.length() == 0) return 0;
+        
+        for (int i = 0; i < s.length(); i++) { // i is the mid point
+            extendPalindrome(s, i, i); // odd length;
+            extendPalindrome(s, i, i + 1); // even length
         }
-        int odd =0;
-        int even =0;
-        int n = s.length();
-        for(int i =0; i<n; i++){
-            int l = i;
-            int r= i;
-            while(l>=0 && r<n && s.charAt(l) == s.charAt(r)){
-                System.out.println("In odd");
-                odd++;
-                System.out.println("L: "+ l +" R: "+ r);
-                l--;
-                r++;
-            }
+        
+        return count;
+    }
+    
+    private void extendPalindrome(String s, int left, int right) {
+        while (left >=0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            count++; left--; right++;
         }
-
-        for(int i=0; i<n-1;i++){
-            int l = i;
-            int r= i+1;
-            while(l>=0 && r<n && s.charAt(l) == s.charAt(r)){
-                               System.out.println("In even");
-
-                even++;
-                System.out.println("L: "+ l +" R: "+ r);
-                l--;
-                r++;
-            }
-        }
-
-        return odd + even;
     }
 }
