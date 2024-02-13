@@ -16,6 +16,7 @@ class Solution {
             
         
     
-        return Arrays.equals(res,tar);
+       //return Arrays.equals(res,tar);
+        return res[0] == tar[0] && res[1] == tar[1] && res[2] == tar[2];
     }
 }
