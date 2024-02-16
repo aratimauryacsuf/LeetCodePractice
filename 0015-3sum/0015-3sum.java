@@ -7,6 +7,8 @@ class Solution {
         Arrays.sort(nums);
         
         for(int i =0; i< nums.length-2;i++){
+            if(i ==0 || nums[i] != nums[i-1]){
+                
             
           int  left = i+1;
            int right = nums.length-1;
@@ -18,6 +20,7 @@ class Solution {
                 }else if(sum >0) right--;
                 else if(sum < 0) left++;
             }
+        }
         }
         
         return new ArrayList<>(result);
