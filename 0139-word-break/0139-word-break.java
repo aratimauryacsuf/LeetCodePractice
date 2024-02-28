@@ -6,14 +6,14 @@ class Solution {
         
         for(int i =0; i<= len; i++){
             String sub = s.substring(0, i);
-            System.out.println("outer: "+ sub);
+           // System.out.println("outer: "+ sub);
             if(set.contains(sub)){
                 res[i] = 1;
             }
             if(res[i]==1){
                 for(int j = i; j<=len;j++){
                     String sub2 = s.substring(i, j);
-                     System.out.println("inner: "+ sub2);
+                   //  System.out.println("inner: "+ sub2);
                     if(set.contains(sub2)){
                         res[j] =1;
                     }
