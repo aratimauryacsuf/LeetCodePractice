@@ -1,27 +1,30 @@
 class Solution {
-    public boolean wordBreak(String s, List<String> wordDict1) {
-        Set<String> wordDict = new HashSet<>(wordDict1);
+    public boolean wordBreak(String s, List<String> wordDict) {
+       Set<String> set = new HashSet<>(wordDict);
         int len = s.length();
-        int sol[] = new int[len+1];
+        int[] res = new int[len+1];
         
-        for(int i = 0; i <= len; i++){
+        for(int i =0; i<= len; i++){
             String sub = s.substring(0, i);
-            if(wordDict.contains(sub)){
-                sol[i] = 1;
+            System.out.println("outer: "+ sub);
+            if(set.contains(sub)){
+                res[i] = 1;
             }
-            
-            if(sol[i] == 1){
-                for(int j = i; j <= len; j++){
+            if(res[i]==1){
+                for(int j = i; j<=len;j++){
                     String sub2 = s.substring(i, j);
-                     if(wordDict.contains(sub2)){
-                            sol[j] = 1;
-                        }
+                     System.out.println("inner: "+ sub2);
+                    if(set.contains(sub2)){
+                        res[j] =1;
                     }
-                if(sol[len]==1)
-                    return true;
+                }
+            }
+            if(res[len]==1){
+                return true;
             }
             
         }
-        return sol[len]==1;
+        
+      return res[len]==1;  
     }
 }
