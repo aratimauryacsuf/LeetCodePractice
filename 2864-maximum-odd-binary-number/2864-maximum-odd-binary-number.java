@@ -1,6 +1,6 @@
 class Solution {
     public String maximumOddBinaryNumber(String s) {
-      /* Method 1: Greedy - counting bits
+      // Method 1: Greedy - counting bits 0(n)
         int n = s.length();
         
         int ones =0;
@@ -20,8 +20,8 @@ class Solution {
         sb.append("1");
         
         return sb.toString();
-        */
         
+        /* method2 nlogn
         char[] ch  = s.toCharArray();
         int n = ch.length;
         
@@ -35,6 +35,6 @@ class Solution {
         }
         
         
-      return new String(ch);  
+      return new String(ch);  */
     }
 }
