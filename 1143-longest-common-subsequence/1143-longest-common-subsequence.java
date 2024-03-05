@@ -1,5 +1,5 @@
-// dp bottom up 
-/*
+// dp bottom up run time 20ms
+
 class Solution {
     public int longestCommonSubsequence(String text1, String text2) {
         int m = text1.length();
@@ -21,9 +21,10 @@ class Solution {
         return dp[m][n];
     }
 }
-*/
 
-//Dp top down
+
+//Dp top down  runtime 34ms
+/*
 class Solution {
     private Integer[][] dp;
     public int longestCommonSubsequence(String text1, String text2) {
@@ -47,3 +48,4 @@ class Solution {
             );
     }
 }
+*/
