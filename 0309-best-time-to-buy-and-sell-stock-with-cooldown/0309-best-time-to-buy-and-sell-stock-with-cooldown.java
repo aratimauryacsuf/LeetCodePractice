@@ -1,29 +1,36 @@
 class Solution {
-    Map<Pair<Integer, Boolean>, Integer> map = new HashMap<>();
-    
+    Map<String, Integer> cache = new HashMap<>();
     public int maxProfit(int[] prices) {
         
         return dfs(0, true, prices);
     }
     
-    int dfs(int i, boolean buy, int[] prices){
-        if(i >= prices.length)
-            return 0;
+    public int dfs (int index, boolean buying, int[] prices){
         
-        if(map.containsKey(new Pair(i, buy)))
-            return map.get(new Pair(i, buy));
-                
-        if(buy){
-            int buyProfit = dfs(i+1, !buy, prices) - prices[i];
-            int cooldown =  dfs(i+1, buy, prices);
-            map.put(new Pair(i, buy), Integer.max(buyProfit, cooldown));
+        if(index >= prices.length){
+            return 0;
+        }
+        
+        String key = index +"-"+buying;
+        
+        if(cache.containsKey(key)){
+            return cache.get(key);
+        }
+        
+        int cooldown = dfs(index+1, buying, prices);
+        
+        int buyOrSell = Integer.MIN_VALUE;
+        
+        if(buying){
+            buyOrSell = dfs(index+1, !buying, prices) - prices[index];
         }
         else{
-            int sellProfit = dfs(i+2, !buy, prices) + prices[i];
-            int cooldown =  dfs(i+1, buy, prices);
-            map.put(new Pair(i, buy), Integer.max(sellProfit, cooldown));
-        }      
+            buyOrSell = dfs(index+2, !buying, prices) + prices[index];
+        }
         
-        return map.get(new Pair(i, buy));
+        cache.put(key, Math.max(cooldown, buyOrSell));
+        
+        return cache.get(key);
     }
+   
 }
