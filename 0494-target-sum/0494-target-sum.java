@@ -1,19 +1,31 @@
 class Solution {
-    int count =0;
+   // int count =0;
+      Map<String, Integer> cache = new HashMap<>();
     public int findTargetSumWays(int[] nums, int target) {
-        backtrack(0, 0, nums, target);
-        
-        return count;
+          
+        return backtrack(0, 0, nums, target);
     }
     
-    public void backtrack(int i, int sum, int[] nums, int target ){
-        if(i == nums.length && sum == target){
-            count++;
-        }
+    public int backtrack(int i, int sum, int[] nums, int target ){
         if(i == nums.length){
-            return;
+            if(sum == target){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        } 
+        String key = i+"-"+sum;
+        
+        if(cache.containsKey(key)){
+            return cache.get(key);
         }
-        backtrack(i+1, sum + nums[i], nums, target);
-        backtrack(i+1, sum - nums[i], nums, target);
+        
+        int add = backtrack(i+1, sum + nums[i], nums, target);
+        int sub = backtrack(i+1, sum - nums[i], nums, target);
+        
+        cache.put(key , (add+sub));
+        
+        return cache.get(key);
     }
 }
