@@ -9,7 +9,7 @@ class Solution {
 
         for (int i = dp.length - 1; i >= 0; i--) 
             for ( int j = dp[0].length - 1; j >= 0;j--) {
-                System.out.println("i: "+i+" j: "+ j);
+              //  System.out.println("i: "+i+" j: "+ j);
             if (
                 i < s1.length() &&
                 s1.charAt(i) == s3.charAt(i + j) &&
