@@ -45,6 +45,7 @@ class Solution {
        return -1; 
        */
         
+    /*
         //Using two pointer
         
         int p1  = 0;
@@ -66,5 +67,38 @@ class Solution {
         }
         
        return -1; 
+       
+       */
+        
+        
+       if(nums1.length > nums2.length){
+           getCommon(nums2, nums1);
+       } 
+        
+        for(int num: nums1){
+            if(binarySearch(num, nums2)){
+                return num;
+            }
+        }
+       return -1; 
+    }
+    
+    public boolean binarySearch(int target, int[] nums){
+        int left = 0 ;
+        int right = nums.length -1;
+        
+        while(left <= right){
+            int mid = left + (right  - left)/2;
+            
+            if(nums[mid] > target){
+                right = mid -1;
+            }else if(nums[mid] < target){
+                left = mid +1;
+            }else{
+                return true;
+            }
+        }
+        
+        return false;
     }
 }
