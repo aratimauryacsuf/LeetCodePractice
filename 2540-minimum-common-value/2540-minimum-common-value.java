@@ -45,7 +45,7 @@ class Solution {
        return -1; 
        */
         
-    /*
+    
         //Using two pointer
         
         int p1  = 0;
@@ -68,9 +68,10 @@ class Solution {
         
        return -1; 
        
-       */
+    }
         
-        
+    /* 
+        // Binary Search approach
        if(nums1.length > nums2.length){
            getCommon(nums2, nums1);
        } 
@@ -101,4 +102,6 @@ class Solution {
         
         return false;
     }
+    
+    */
 }
