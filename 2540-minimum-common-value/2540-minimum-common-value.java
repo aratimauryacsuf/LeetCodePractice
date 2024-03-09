@@ -1,0 +1,47 @@
+class Solution {
+    public int getCommon(int[] nums1, int[] nums2) {
+        
+     /*
+        int min = Integer.MAX_VALUE;
+        
+        for(int i = 0; i<nums1.length; i++){
+            for(int j =0; j<nums2.length; j++){
+                if(nums1[i] == nums2[j]){
+                    min = Math.min(min , nums1[i]);
+                }
+            }
+        }
+       
+        return min == Integer.MAX_VALUE? -1 : min;
+        */
+        
+        Set<Integer> set = new HashSet<>();
+        int l1 = nums1.length;
+        int l2 = nums2.length;
+        
+       if(l1 < l2){
+            for(int i = 0 ; i < l1; i++){
+                set.add(nums1[i]);
+            }
+           
+           for(int i =0; i<l2;i++){
+               if(set.contains(nums2[i]))
+                   return nums2[i];
+           }
+           
+       }else{
+           for(int i = 0 ; i < l2; i++){
+                set.add(nums2[i]);
+            }
+           for(int i =0; i<l1;i++){
+               if(set.contains(nums1[i]))
+                   return nums1[i];
+           }
+           
+       }
+        
+        
+       return -1; 
+        
+    }
+}
