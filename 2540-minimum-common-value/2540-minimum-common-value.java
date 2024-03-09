@@ -1,7 +1,7 @@
 class Solution {
     public int getCommon(int[] nums1, int[] nums2) {
         
-     /*
+     /* brute force
         int min = Integer.MAX_VALUE;
         
         for(int i = 0; i<nums1.length; i++){
@@ -15,6 +15,7 @@ class Solution {
         return min == Integer.MAX_VALUE? -1 : min;
         */
         
+     /*   // using set
         Set<Integer> set = new HashSet<>();
         int l1 = nums1.length;
         int l2 = nums2.length;
@@ -42,6 +43,27 @@ class Solution {
         
         
        return -1; 
+       */
         
+        //Using two pointer
+        
+        int p1  = 0;
+        int p2  =0;
+        
+        while(p1 < nums1.length && p2 < nums2.length){
+            
+            if(nums1[p1] == nums2[p2]){
+                return nums1[p1];
+            }else{
+                if(nums1[p1] < nums2[p2]){
+                    p1++;
+                }else{
+                    p2++;
+                }
+            }
+            
+        }
+        
+       return -1; 
     }
 }
