@@ -54,13 +54,14 @@ class Solution {
             
             if(nums1[p1] == nums2[p2]){
                 return nums1[p1];
-            }else{
+            }
+            
                 if(nums1[p1] < nums2[p2]){
                     p1++;
                 }else{
                     p2++;
                 }
-            }
+            
             
         }
         
