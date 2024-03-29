@@ -28,11 +28,15 @@ class Solution {
         int prod =1; 
         for(int i = 0 ;i < nums.length;i++){
             answer[i] = prod;
+          //  System.out.println("answer1: "+ answer[i]);
             prod *= nums[i];
         }
+        
         prod =1;
         for(int i = nums.length -1; i>=0;i--){
+            
             answer[i]*= prod;
+            // System.out.println("answer2: "+ answer[i]);
             prod*= nums[i];
         }
         
