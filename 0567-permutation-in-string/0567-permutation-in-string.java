@@ -15,6 +15,7 @@ class Solution {
         for(int i=0; i<m ;i++){
             f2[s2.charAt(i)-'a']++;
             if(i>=n){
+               // System.out.println("s2.charAt(i-n): "+ s2.charAt(i-n));
                 f2[s2.charAt(i-n)-'a']--;
             }
             
