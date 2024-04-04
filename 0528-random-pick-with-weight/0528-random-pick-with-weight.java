@@ -13,7 +13,7 @@ class Solution {
     public int pickIndex() {
         int sum = runningSum[runningSum.length-1];
         //System.out.println("sum: "+ sum);
-        int random = getRandomNumber(0,sum)+1;//(int)(Math.random()*sum);
+        int random = (int)(Math.random()*sum)+1;
        // System.out.println("random: "+ random);
         for (int i = 0; i < runningSum.length; i++){
             if(random <= runningSum[i])
