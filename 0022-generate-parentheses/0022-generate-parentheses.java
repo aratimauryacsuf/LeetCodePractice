@@ -6,8 +6,11 @@ class Solution {
     }
     
     public void backtrack(List<String> list, String str, int open,int close, int max){
-        
+      //  System.out.println("Str: "+ str);
+      //  System.out.println("Open: "+ open + " Close: "+ close);
         if(str.length() == 2*max){
+            
+          //  System.out.println("Str "+str +" added in a list");
             list.add(str);
             return;
         }
